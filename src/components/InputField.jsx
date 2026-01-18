@@ -9,4 +9,13 @@ function InputField({ label, type, value, onChange }) {
   );
 }
 
-export { InputField };
+function Textarea({ label, value, onChange }) {
+  return (
+    <div>
+      <label>{label}</label>
+      <textarea value={value} onChange={onChange}></textarea>
+    </div>
+  );
+}
+
+export { InputField, Textarea };
