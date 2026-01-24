@@ -1,18 +1,24 @@
 import { useState } from "react";
 
-function Experiences({ ExperienceComponent, buttonLabel }) {
-  const [experiences, setExperiences] = useState([ExperienceComponent]);
+function Experiences({ ExperienceComponent, title, buttonLabel }) {
+  const [experiences, setExperiences] = useState([{ id: crypto.randomUUID() }]);
 
   function addExperience() {
-    setExperiences([...experiences, {}]);
+    setExperiences((prev) => [...prev, { id: crypto.randomUUID() }]);
+  }
+
+  function deleteExperience(id) {
+    setExperiences((prev) => prev.filter((exp) => exp.id !== id));
   }
 
   return (
     <div>
-      {experiences.map((experience, index) => (
-        <div key={index}>
-          <ExperienceComponent></ExperienceComponent>
-        </div>
+      <h2>{title}</h2>
+      {experiences.map((experience) => (
+        <ExperienceComponent
+          key={experience.id}
+          onDelete={() => deleteExperience(experience.id)}
+        ></ExperienceComponent>
       ))}
 
       <button type="button" onClick={addExperience}>

@@ -10,13 +10,14 @@ function App() {
       <GeneralInfo></GeneralInfo>
       <Experiences
         ExperienceComponent={EducationalExperience}
+        title="Education"
         buttonLabel="Add education"
       ></Experiences>
       <Experiences
         ExperienceComponent={WorkExperience}
+        title="Work Experience"
         buttonLabel="Add work experience"
       ></Experiences>
-      <Jobs></Jobs>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { InputField } from "./InputField";
 import { Textarea } from "./InputField";
 import { DateInput } from "./DateInput";
 
-function WorkExperience() {
+function WorkExperience({ onDelete }) {
   const [info, setInfo] = useState({
     companyName: "",
     title: "",
@@ -94,7 +94,12 @@ function WorkExperience() {
     <form onSubmit={handleSubmit}>
       {content}
       {!submitted && <button onClick={() => setSubmitted(true)}>Submit</button>}
-      {submitted && <button onClick={() => setSubmitted(false)}>Edit</button>}
+      {submitted && (
+        <div>
+          <button onClick={() => setSubmitted(false)}>Edit</button>
+          <button onClick={onDelete}>Delete</button>
+        </div>
+      )}
     </form>
   );
 }
