@@ -41,8 +41,6 @@ function GeneralInfo() {
   } else {
     content = (
       <section>
-        <h2>General Information</h2>
-
         <InputField
           label="First Name"
           type="text"
